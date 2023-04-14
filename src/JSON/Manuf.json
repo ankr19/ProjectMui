@@ -1,0 +1,28 @@
+{
+    "manufacturelist":[
+        {
+            "name":"OEM1",
+            "idName": "oem1@gmail.com",
+            "password": "Oem1234",
+            "added Date": "12/2/2023, 23:12:12"
+        },
+        {
+            "name":"OEM2",
+            "idName": "oem2@gmail.com",
+            "password": "Oem1234",
+            "added Date": "12/2/2023, 23:12:12"
+        },
+        {
+            "name":"OEM3",
+            "idName": "oem2gmail.com",
+            "password": "Oem1234",
+            "added Date": "12/2/2023, 23:12:12"
+        },
+        {
+            "name":"OEM4",
+            "idName": "oem4@gmail.com",
+            "password": "Oem1234",
+            "added Date":"12/2/2023, 23:12:12"
+        }
+    ]
+}

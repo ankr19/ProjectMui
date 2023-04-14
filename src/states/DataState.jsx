@@ -1,0 +1,38 @@
+import React from 'react'
+import DataContext from '../context/DataContext'
+
+const DataState = (props) => {
+    const [manu, setManu] = React.useState([]);
+
+  const [Batches, setBatches] = React.useState([]);
+
+  const [Pics, setPics] = React.useState([]);
+
+  const [update, setUpdate] = React.useState([]);
+
+  const [espM, setEspM] = React.useState([]);
+
+  const [log, setLog] = React.useState([]);
+  let api = "http://192.168.0.113:5002";
+
+  let config = {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  }
+
+  let pro = "/api/v2/"
+  let allManu = async () => {
+    const response = await axios.get(`${api}${pro}getAllManufacturers`)
+    // console.log(response.data.body);
+    setManu(response.data.body);
+  }
+
+  return (
+    <DataContext.Provider value={{manu, allManu}}>
+        {props.children}
+    </DataContext.Provider>
+  )
+}
+
+export default DataState

@@ -11,6 +11,7 @@ import Esp from './pages/Esp/Esp'
 import PicItem from './pages/Pics/PicItem'
 import Upload from './pages/Upload/Upload'
 import DataState from './states/DataState'
+import Alert from './components/common/Alert/Alert'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <>
       <DataState>
       <Sidebar />
+      {/* <Alert/> */}
       <Routes>
         <Route path='/' element={<Sidebar />}>
           <Route path='/dashboard' element={<Dashboard />} />

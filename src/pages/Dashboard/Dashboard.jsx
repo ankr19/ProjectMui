@@ -3,11 +3,12 @@ import React from 'react'
 import Table from '../../components/common/Table/DTable';
 import DataContext from '../../context/DataContext';
 import Alert from '../../components/common/Alert/Alert';
+import MTable from '../../components/common/Table/MTable';
 const drawerWidth = 800;
 
 const Dashboard = () => {
   let context = React.useContext(DataContext);
-  let row = []
+  const [row, setRow] = React.useState([]);
   let {manu, allManu} = context;
   let colValue = [
     { field: 'name', headerName: 'Name', width: 100 },
@@ -17,9 +18,13 @@ const Dashboard = () => {
     { field: 'type', headerName: 'Type', width: 100 }, 
     { field: '_id', headerName: 'ID', width: 100 }, 
   ]  
+
+  let collectData = async ()=>{
+    let b = await allManu();
+    setRow(b);
+  }
   React.useEffect(()=>{
-    allManu();
-    row.concat(manu);
+    collectData();
   },[]);
   return (
     <Container maxWidth="lg" sx={{margin: 0}}>
@@ -35,7 +40,8 @@ const Dashboard = () => {
         }}
       >
         <Alert/>
-        <Table dataset={row} colValues={colValue} />
+        {/* <Table /> */}
+        <MTable rows={row} />
       </Box>
     </Container >
   )

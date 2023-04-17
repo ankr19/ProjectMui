@@ -27,8 +27,12 @@ const DataState = (props) => {
   
   let allManu = async () => {
     const response = await axios.get(`${api}${pro}getAllManufacturers`)
-    console.log(response.data.body);
-    // setManu(response.data.body);
+    // console.log(response.data.body);
+    setManu(response.data.body);
+    if(response.data.body){
+      return response.data.body;
+    }
+    return [];
   }
 
   return (

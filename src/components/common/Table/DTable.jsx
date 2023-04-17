@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -21,6 +21,7 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import { Add } from '@mui/icons-material';
 
 function createData(name, calories, fat, carbs, protein) {
   return {
@@ -200,7 +201,11 @@ function EnhancedTableToolbar(props) {
           Nutrition
         </Typography>
       )}
-
+      <Tooltip title="Add manufacturer">
+        <IconButton>
+          <Add/>
+        </IconButton>
+      </Tooltip>
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>

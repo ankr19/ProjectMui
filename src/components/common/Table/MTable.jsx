@@ -1,4 +1,4 @@
-import { Delete } from '@mui/icons-material'
+import { Delete, ThumbUp } from '@mui/icons-material'
 import { Box, Button, Modal } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import moment from 'moment/moment'
@@ -63,6 +63,7 @@ const MTable = ({ rows }) => {
                       <p id="parent-modal-description">
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                       </p>
+                      <Button variant='outlined' startIcon={<ThumbUp/>} onClick={handleClose}>close</Button>
                     </Box>
                   </Modal>
                   </>

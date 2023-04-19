@@ -39,7 +39,7 @@ const Dashboard = () => {
           flexShrink: { sm: 0 },
         }}
       >
-        <Alert/>
+        {/* <Alert/> */}
         {/* <Table /> */}
         <MTable rows={row} />
       </Box>

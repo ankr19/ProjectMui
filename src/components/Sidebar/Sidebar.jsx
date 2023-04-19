@@ -122,9 +122,9 @@ function Sidebar(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 0, p: 1, m:0, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Snackbar2/>
+        {/* <Snackbar2/> */}
         <Toolbar />
         {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

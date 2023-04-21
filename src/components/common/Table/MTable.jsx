@@ -84,6 +84,14 @@ const MTable = ({ rows }) => {
                     columns={colValue}
                     // pageSizeOptions={[5, 10, 25]}
                     pageSize={5}
+                    sx={{
+                        boxShadow: 2,
+                        border: 2,
+                        borderColor: 'primary.light',
+                        '& .MuiDataGrid-cell:hover': {
+                          color: 'primary.main',
+                        },
+                      }}
                 // checkboxSelection
                 // loading={true}
                 />

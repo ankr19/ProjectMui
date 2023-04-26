@@ -9,19 +9,25 @@ import {
   Select,
 } from '@mui/material'
 import React from 'react'
+import DataContext from '../../../context/DataContext';
 
 const BCard = ({ data }) => {
-  const [batchId, setBatchId] = React.useState('');
+  const [batchId, setBatchId] = React.useState([]);
   const [manuId, setManuId] = React.useState("");
   const [vers, setVers] = React.useState("");
-  const handleChange = (event) => {
+  const context = React.useContext(DataContext);
+  let {batchByManu} = context;
+  const handleChange = async (event) => {
     if (event.target.name === "version") {
       console.log(event.target.name, "-->", event.target.value)
       setVers(event.target.value)
     }
     else if (event.target.name === "manuId") {
       console.log(event.target.name, "-->", event.target.value)
+      const val = event.target.value;
       setManuId(event.target.value);
+      let b = await batchByManu({manufacturerId: val._id});
+      setBatchId(b);
     }
     else {
       setBatchId(event.target.value);
@@ -37,8 +43,7 @@ const BCard = ({ data }) => {
       <CardActions>
         <FormControl sx={{ width: "120px" }}>
           <InputLabel id="demo-simple-select-label">Manufacturer</InputLabel>
-          {
-            data.length !== 0 ? 
+          {data.length !== 0 ? 
               <Select
                 labelId="manuId"
                 id="manuId"
@@ -48,7 +53,7 @@ const BCard = ({ data }) => {
                 name='manuId'
               >
                 {data.map((e, key) => {
-                  return (<MenuItem key={key} value={e.name}>{e.name}</MenuItem>)
+                  return (<MenuItem key={key} value={e}>{e.name}</MenuItem>)
                 })}
               </Select>
               : <Select

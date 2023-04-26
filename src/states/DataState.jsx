@@ -24,19 +24,31 @@ const DataState = (props) => {
   }
 
   let pro = "/api/v2/";
-  
+
   let allManu = async () => {
     const response = await axios.get(`${api}${pro}getAllManufacturers`)
     // console.log(response.data.body);
     setManu(response.data.body);
-    if(response.data.body){
+    if (response.data.body) {
       return response.data.body;
     }
     return [];
   }
 
+  let batchByManu = async (value) => {
+    console.log(value);
+    try {
+      // const response = await axios.post(`${api}${pro}getBatchesforManufacturer`)
+      return [];
+    } catch (error) {
+      if(error.response){
+        console.log("Error")
+      }
+    }
+  }
+
   return (
-    <DataContext.Provider value={{ manu, allManu }}>
+    <DataContext.Provider value={{ manu, allManu, batchByManu, }}>
       {props.children}
     </DataContext.Provider>
   )

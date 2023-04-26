@@ -6,7 +6,7 @@ import DataContext from '../../context/DataContext';
 const Upload = () => {
   const [mau, setMau] = React.useState([]);
   let context = React.useContext(DataContext);
-  let {allManu } = context;
+  let { allManu } = context;
   const boxStyle = {
     box: {
       // width: 600,
@@ -17,12 +17,12 @@ const Upload = () => {
       '& > :not(style)': { m: 1 },
     }
   }
-  let collectData = async ()=>{
+  let collectData = async () => {
     setMau(await allManu());
   }
-  React.useEffect(()=>{
+  React.useEffect(() => {
     collectData()
-  },[])
+  }, [])
   return (
     <Box sx={boxStyle.box} >
       <BCard data={mau} />
